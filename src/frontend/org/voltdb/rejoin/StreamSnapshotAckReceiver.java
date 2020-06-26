@@ -145,4 +145,8 @@ public class StreamSnapshotAckReceiver implements Runnable {
         rejoinLog.error(message, exception);
         m_callbacks.values().forEach(c -> c.receiveError(exception));
     }
+
+    public boolean isStopped() {
+        return m_thread == null;
+    }
 }
